@@ -1,9 +1,13 @@
-export function add(a: number, b: number) {
-  const obj = {
-    hello: "world",
-  };
+import { config } from "dotenv";
+import express from "express";
 
-  let c = 7;
+//Para poder acceder a las variables del ambiente (.env)
+config();
 
-  return a + b;
-}
+const app = express();
+
+console.log("Hello world");
+
+app.listen(process.env.SERVER_PORT, function () {
+  console.log("Escuchando puerto " + process.env.SERVER_PORT);
+});

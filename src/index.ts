@@ -7,7 +7,9 @@ import testRoutes from "./routes/test";
 import validationError from "./middlewares/validation-errors";
 
 //Para poder acceder a las variables del ambiente (.env)
-dotenvFlow.config();
+if (process.env.NODE_ENV !== "production") {
+  dotenvFlow.config();
+}
 
 const app = express();
 

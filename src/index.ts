@@ -1,10 +1,12 @@
 import dotenvFlow from "dotenv-flow";
 import express from "express";
 import studentRouter from "./routes/student";
+import professorRouter from "./routes/professor";
+import courseRouter from "./routes/course";
 import testRoutes from "./routes/test";
 import unknownResource from "./middlewares/unknown-resource";
 import unknownError from "./middlewares/unknown-error";
-import validationError from "./middlewares/validation-errors";
+import validationError from "./middlewares/validation-error";
 import http from "http";
 import { Server as SocketIOServer } from "socket.io";
 import cors from "cors";
@@ -31,6 +33,10 @@ app.use(express.json());
 
 // Rutas de la api
 app.use("/api/v1/student", studentRouter);
+
+app.use("/api/v1/professor", professorRouter);
+
+app.use("/api/v1/course", courseRouter);
 
 // Rutas de prueba
 app.use("/error", testRoutes);

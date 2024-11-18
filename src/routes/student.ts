@@ -7,7 +7,7 @@ import {
   updateStudent,
 } from "../controllers/student";
 import validate from "../middlewares/validate";
-import { studentSchema } from "../eschemas/student";
+import { studentSchema } from "../schemas/student";
 
 const router = Router();
 
